@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    @apply antialiased bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-white;
+  }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Element Plus Custom Overrides for Premium Slate Theme */
+:root {
+  --el-color-primary: #10b981 !important; /* Emerald primary */
+  --el-color-primary-light-3: #34d399 !important;
+  --el-color-primary-light-5: #6ee7b7 !important;
+  --el-color-primary-light-7: #a7f3d0 !important;
+  --el-color-primary-light-9: #ecfdf5 !important;
+  
+  --el-bg-color: #0f172a !important; /* Slate-900 background */
+  --el-bg-color-overlay: #1e293b !important; /* Slate-800 card overlays */
+  --el-text-color-primary: #f8fafc !important; /* Off-white text */
+  --el-text-color-regular: #cbd5e1 !important; /* Slate-300 regular text */
+  --el-text-color-secondary: #94a3b8 !important; /* Slate-400 muted text */
+  --el-border-color: #334155 !important; /* Slate-700 borders */
+  --el-border-color-light: #1e293b !important;
+  --el-border-color-lighter: #0f172a !important;
+}
+
+/* ElTable Overrides */
+.el-table {
+  --el-table-border-color: #334155 !important;
+  --el-table-header-bg-color: #0f172a !important;
+  background-color: transparent !important;
+}
+
+.el-table tr, .el-table th {
+  background-color: transparent !important;
+  color: #cbd5e1 !important;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ElMenu Overrides */
+.el-menu {
+  border-right: none !important;
+  background-color: transparent !important;
+}
+
+.el-menu-item {
+  color: #94a3b8 !important;
+  border-radius: 8px;
+  margin: 4px 8px;
+  height: 48px !important;
+  line-height: 48px !important;
+}
+
+.el-menu-item.is-active {
+  color: #ffffff !important;
+  background-color: #10b981 !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.el-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+}
+
+/* ElCard Overrides */
+.el-card {
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(30, 41, 59, 0.7) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 12px !important;
+  color: #f8fafc !important;
+}
+
+.el-card__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 14px 20px !important;
+}
+
+/* Dialog & Input Overrides */
+.el-dialog {
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(20px);
+}
+
+.el-input__wrapper, .el-textarea__inner {
+  background-color: #0f172a !important;
+  box-shadow: 0 0 0 1px #334155 inset !important;
+  color: #f8fafc !important;
+}
+
+.el-input__wrapper.is-focus, .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #10b981 inset !important;
+}
+
+.el-input__inner {
+  color: #f8fafc !important;
+}
+
+/* Tag Overrides */
+.el-tag--success {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+  color: #34d399 !important;
+}
+
+.el-tag--warning {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+  color: #fbbf24 !important;
+}
+
+.el-tag--danger {
+  background-color: rgba(225, 29, 72, 0.1) !important;
+  border-color: rgba(225, 29, 72, 0.2) !important;
+  color: #fb7185 !important;
+}
+
+.el-tag--info {
+  background-color: rgba(148, 163, 184, 0.1) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+  color: #cbd5e1 !important;
+}
+
+/* Buttons */
+.el-button {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.el-button--primary {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.el-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
