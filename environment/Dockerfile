@@ -6,11 +6,11 @@ WORKDIR /build/frontend
 RUN npm config set registry https://registry.npmmirror.com
 
 # Copy lockfile and package descriptor for deterministic installs
-COPY environment/repo/frontend/package*.json ./
+COPY repo/frontend/package*.json ./
 RUN npm ci
 
 # Copy frontend source and build static compiled html/css/js
-COPY environment/repo/frontend/ ./
+COPY repo/frontend/ ./
 RUN npm run build
 
 # --- Stage 2: Production Server Runner ---
@@ -21,11 +21,11 @@ WORKDIR /app
 RUN npm config set registry https://registry.npmmirror.com
 
 # Copy backend lockfile and descriptor for dev-omitted installs
-COPY environment/repo/backend/package*.json ./
+COPY repo/backend/package*.json ./
 RUN npm ci --omit=dev
 
 # Copy backend source code
-COPY environment/repo/backend/ ./
+COPY repo/backend/ ./
 
 # Copy compiled frontend assets to backend public directory for Express hosting
 COPY --from=frontend-builder /build/frontend/dist ./public
